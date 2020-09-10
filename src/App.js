@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import Header from './Header.js';
+import Home from './Home.js';
 
 function App() {
   return (
     // BEM convention - changing classname from App to app
     <div className="app">
       <Header />
-      {/* Home component */}
+      <Home />
     </div>
   );
 }
