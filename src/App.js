@@ -4,6 +4,7 @@ import Header from './Header.js';
 import Home from './Home.js';
 import Checkout from './Checkout.js';
 import Login from './Login.js';
+import Payment from './Payment.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
@@ -51,6 +52,10 @@ function App() {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Payment />
           </Route>
           {/* Route path will then render the selected components when we are on the home page - default page (/) */}
           {/* The Default route will always need to be at the bottom of the routes created */}
