@@ -8,6 +8,13 @@ import Payment from './Payment.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
+import { loudStripe, loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+// public key so is fine to go here!
+const promise = loadStripe(
+  'pk_test_51HXQTxBrKH0r3D9w255a7Ls9BUIACG6qKWGqWpqFDcQG4iUShaIECzEc2oiNxhLvD1PR55od6xnaauyf9gIyoWuX00d2WPPNsJ'
+);
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -55,7 +62,10 @@ function App() {
           </Route>
           <Route path="/payment">
             <Header />
-            <Payment />
+            {/* Wrapping the payment component in a higher order function */}
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
           {/* Route path will then render the selected components when we are on the home page - default page (/) */}
           {/* The Default route will always need to be at the bottom of the routes created */}
