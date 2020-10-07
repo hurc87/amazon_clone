@@ -96,3 +96,16 @@ To deploy front end only:
 ```
 const [email, setEmail] = useState('');
 ```
+
+### To run locally
+
+In the main folder:
+
+- npm install
+- npm start
+  This will start the front end part of the project
+
+In a new terminal, cd into the functions folder and run:
+
+- firebase emulators:start
+  This will start the express server backend to run the cloud functions locally.
